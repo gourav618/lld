@@ -8,9 +8,12 @@ public class Student {
     private String email;
     private char section;
     private  int age;
+    private int score;
 
     public Student(String email) {
         this.email = email;
+        //initially its zero;
+        this.score = 0;
     }
 
     /**
@@ -25,18 +28,17 @@ public class Student {
      */
     //todo : use builder pattern to optimize so many constructor
     public Student(String email, char section) {
-        this.email = email;
+        this(email); //constructor chaining
         this.section = section;
     }
 
     public Student(String email, int age) {
-        this.email = email;
+        this(email);
         this.age = age;
     }
 
     public Student(String email, char section, int age) {
-        this.email = email;
-        this.section = section;
+        this(email, section);
         this.age = age;
     }
 
@@ -50,5 +52,17 @@ public class Student {
 
     public int getAge() {
         return age;
+    }
+
+    public void printHashCode() {
+        System.out.print(this);
+        System.out.print(" ");
+        //this is how we can pass the current object to other class to do some operation using this keyword
+        //same thing happening in above print statement where we pass the instance of this class to print method of PrintStream class
+        ScoreCalculator.calculateScore(this);
+    }
+
+    public void increaseScore(int score){
+        this.score += score;
     }
 }
