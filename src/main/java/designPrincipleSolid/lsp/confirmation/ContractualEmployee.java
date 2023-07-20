@@ -1,6 +1,6 @@
 package designPrincipleSolid.lsp.confirmation;
 
-public class ContractualEmployee extends Employee {
+public class ContractualEmployee extends Employee.EmployeeWithSalary {
 
 
     /**
